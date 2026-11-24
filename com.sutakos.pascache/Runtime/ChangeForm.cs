@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using UnityEngine;
+
 public class changeForm : MonoBehaviour
 {
     /*
@@ -13,7 +16,12 @@ public class changeForm : MonoBehaviour
     }
     public void ChangeSize()
     {
-        transform.localScale = sizeToChangeTo; // changer la taille de l'objet
+        // changer la taille de l'objet
+        float x = transform.localScale.x * sizeToChangeTo[0];
+        float y = transform.localScale.y * sizeToChangeTo[1];
+        float z = transform.localScale.z * sizeToChangeTo[2];
+        transform.localScale = new Vector3(x, y, z);
+
         Invoke("ResetSize", timeToChangeSize); // appeler la fonction ResetSize apres le temps defini
     }
     private void ResetSize()
