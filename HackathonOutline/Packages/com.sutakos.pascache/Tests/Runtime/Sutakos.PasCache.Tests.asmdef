@@ -1,0 +1,11 @@
+{
+    "name": "Sutakos.PasCache.Tests",
+    "references": [
+        "Sutakos.PasCache"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": []
+}

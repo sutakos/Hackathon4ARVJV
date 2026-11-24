@@ -1,0 +1,10 @@
+{
+    "name": "Sutakos.PasCache.Editor",
+    "references": [
+      "Sutakos.PasCache"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

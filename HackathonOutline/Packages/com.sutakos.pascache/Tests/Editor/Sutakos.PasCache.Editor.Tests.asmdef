@@ -1,0 +1,14 @@
+{
+    "name": "Sutakos.PasCache.Editor.Tests",
+    "references": [
+        "Sutakos.PasCache.Editor",
+        "Sutakos.PasCache"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}
