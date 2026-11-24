@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Assertions;
 
 public class ChangeColorMaterial: MonoBehaviour
 {
@@ -24,27 +25,20 @@ public class ChangeColorMaterial: MonoBehaviour
 
     public static void ChangeColorOfGround(CharacterController characterController)
     {
-        if (characterController == null)
-        {
-            Debug.LogError("A CharacterController is required to find the ground object.");
-            return;
-        }
+        Assert.IsNotNull(characterController, "A CharacterController is required to find the ground object.");
 
         float rayDistance = characterController.bounds.extents.y
                           + characterController.skinWidth
                           + 0.1f;
 
-        if (!Physics.Raycast(
-                characterController.bounds.center,
-                Vector3.down,
-                out RaycastHit hit,
-                rayDistance,
-                Physics.DefaultRaycastLayers,
-                QueryTriggerInteraction.Ignore))
-        {
-            Debug.LogError("Could not find the ground object under the player.", characterController);
-            return;
-        }
+        bool hasGroundHit = Physics.Raycast(
+            characterController.bounds.center,
+            Vector3.down,
+            out RaycastHit hit,
+            rayDistance,
+            Physics.DefaultRaycastLayers,
+            QueryTriggerInteraction.Ignore);
+        Assert.IsTrue(hasGroundHit, "Could not find the ground object under the player.");
 
         ChangeColorMaterial colorMaterial = hit.collider.GetComponentInParent<ChangeColorMaterial>();
         if (colorMaterial == null)
